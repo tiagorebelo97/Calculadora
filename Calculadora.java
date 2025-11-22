@@ -59,8 +59,8 @@ public class Calculadora extends JFrame implements ActionListener {
         // Criar os botões das operações
         botaoMais = new JButton("+");
         botaoMenos = new JButton("-");
-        botaoVezes = new JButton("×");
-        botaoDivisao = new JButton("÷");
+        botaoVezes = new JButton("X");
+        botaoDivisao = new JButton("/");
         botaoIgual = new JButton("=");
         botaoLimpar = new JButton("C");
         botaoPonto = new JButton(".");
@@ -127,8 +127,12 @@ public class Calculadora extends JFrame implements ActionListener {
         
         // Verificar se foi clicado um número (0 a 9)
         if (comando.matches("[0-9]")) {
-            // Se o display mostrar "0", substituir pelo número clicado
-            if (display.getText().equals("0")) {
+            // Se o display mostrar "0" ou uma operação, substituir pelo número clicado
+            if (display.getText().equals("0") || 
+                display.getText().equals("+") || 
+                display.getText().equals("-") || 
+                display.getText().equals("X") || 
+                display.getText().equals("/")) {
                 display.setText(comando);
             } else {
                 // Caso contrário, adicionar o número ao final
@@ -142,22 +146,26 @@ public class Calculadora extends JFrame implements ActionListener {
                 display.setText(display.getText() + ".");
             }
         }
-        // Verificar se foi clicada uma operação (+, -, ×, ÷)
+        // Verificar se foi clicada uma operação (+, -, X, /)
         else if (comando.equals("+") || comando.equals("-") || 
-                 comando.equals("×") || comando.equals("÷")) {
+                 comando.equals("X") || comando.equals("/")) {
             // Guardar o primeiro número
             numero1 = Double.parseDouble(display.getText());
             // Guardar a operação escolhida
             operacao = comando;
-            // Limpar o display para o próximo número
-            display.setText("0");
+            // Mostrar a operação no display
+            display.setText(comando);
         }
         // Verificar se foi clicado o botão de igual
         else if (comando.equals("=")) {
-            // Guardar o segundo número
-            numero2 = Double.parseDouble(display.getText());
-            // Calcular o resultado conforme a operação
-            double resultado = 0;
+            // Verificar se o display contém um número válido
+            String displayText = display.getText();
+            if (!displayText.equals("+") && !displayText.equals("-") && 
+                !displayText.equals("X") && !displayText.equals("/")) {
+                // Guardar o segundo número
+                numero2 = Double.parseDouble(displayText);
+                // Calcular o resultado conforme a operação
+                double resultado = 0;
             
             switch (operacao) {
                 case "+": // Soma
@@ -166,10 +174,10 @@ public class Calculadora extends JFrame implements ActionListener {
                 case "-": // Subtração
                     resultado = numero1 - numero2;
                     break;
-                case "×": // Multiplicação
+                case "X": // Multiplicação
                     resultado = numero1 * numero2;
                     break;
-                case "÷": // Divisão
+                case "/": // Divisão
                     // Verificar se não estamos a dividir por zero
                     if (numero2 != 0) {
                         resultado = numero1 / numero2;
@@ -195,6 +203,7 @@ public class Calculadora extends JFrame implements ActionListener {
             
             // Resetar as variáveis
             operacao = "";
+            }
         }
         // Verificar se foi clicado o botão de limpar
         else if (comando.equals("C")) {
