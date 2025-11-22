@@ -1,0 +1,20 @@
+# Ficheiros compilados Java
+*.class
+
+# Ficheiros de pacotes Java
+*.jar
+*.war
+*.ear
+
+# Ficheiros temporários
+*.tmp
+*.swp
+*~
+
+# Diretórios de IDEs
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
