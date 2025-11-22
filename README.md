@@ -2,12 +2,12 @@
 
 ## Descrição
 Este é um projeto de uma calculadora simples com interface gráfica (GUI) feita em Java usando Swing.
-A calculadora realiza as operações matemáticas básicas: adição (+), subtração (-), multiplicação (×) e divisão (÷).
+A calculadora realiza as operações matemáticas básicas: adição (+), subtração (-), multiplicação (X) e divisão (/).
 
 ## Funcionalidades
 - Interface gráfica intuitiva e fácil de usar
 - Botões numéricos de 0 a 9
-- Operações básicas: +, -, ×, ÷
+- Operações básicas: +, -, X, /
 - Botão de limpar (C) para resetar a calculadora
 - Suporte para números decimais (botão .)
 - Proteção contra divisão por zero
@@ -27,7 +27,7 @@ java Calculadora
 
 ## Como usar a Calculadora
 1. Clique nos botões numéricos para inserir números
-2. Clique numa operação (+, -, ×, ÷)
+2. Clique numa operação (+, -, X, /)
 3. Insira o segundo número
 4. Clique no botão "=" para ver o resultado
 5. Use o botão "C" para limpar e começar uma nova operação

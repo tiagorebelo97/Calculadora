@@ -7,7 +7,7 @@ A calculadora tem 3 partes principais:
 ```
 numero1     - Primeiro número da operação
 numero2     - Segundo número da operação  
-operacao    - Operação escolhida (+, -, ×, ÷)
+operacao    - Operação escolhida (+, -, X, /)
 ```
 
 ### 2. Componentes Visuais
@@ -16,8 +16,8 @@ display           - Campo de texto que mostra os números
 botoesNumeros[]   - Array com 10 botões (0-9)
 botaoMais         - Botão de adição (+)
 botaoMenos        - Botão de subtração (-)
-botaoVezes        - Botão de multiplicação (×)
-botaoDivisao      - Botão de divisão (÷)
+botaoVezes        - Botão de multiplicação (X)
+botaoDivisao      - Botão de divisão (/)
 botaoIgual        - Botão para calcular resultado (=)
 botaoLimpar       - Botão para resetar (C)
 botaoPonto        - Botão para números decimais (.)
@@ -56,7 +56,7 @@ botaoPonto        - Botão para números decimais (.)
 2. **Clicas no "+"**
    - numero1 = 5
    - operacao = "+"
-   - Display limpo para "0"
+   - Display mostra: "+"
 
 3. **Clicas no "3"**
    - Display mostra: "3"
@@ -72,7 +72,7 @@ botaoPonto        - Botão para números decimais (.)
 ┌─────────────────────────────┐
 │        Display: 0           │
 ├───────┬───────┬───────┬─────┤
-│   C   │   ÷   │   ×   │  -  │
+│   C   │   /   │   X   │  -  │
 ├───────┼───────┼───────┼─────┤
 │   7   │   8   │   9   │  +  │
 ├───────┼───────┼───────┼─────┤
