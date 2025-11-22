@@ -5,14 +5,14 @@ import java.awt.event.*; // Biblioteca para responder aos cliques nos botões
 
 /**
  * Classe principal da Calculadora
- * Esta é uma calculadora simples que faz operações básicas: +, -, *, /
+ * Esta é uma calculadora simples que faz operações básicas: +, -, X, /
  */
 public class Calculadora extends JFrame implements ActionListener {
     
     // Variáveis para armazenar os números e a operação
     private double numero1 = 0; // Primeiro número da operação
     private double numero2 = 0; // Segundo número da operação
-    private String operacao = ""; // Operação escolhida (+, -, *, /)
+    private String operacao = ""; // Operação escolhida (+, -, X, /)
     
     // Componentes da interface gráfica
     private JTextField display; // Campo de texto onde aparecem os números
@@ -155,8 +155,13 @@ public class Calculadora extends JFrame implements ActionListener {
         // Verificar se foi clicada uma operação (+, -, X, /)
         else if (comando.equals("+") || comando.equals("-") || 
                  comando.equals("X") || comando.equals("/")) {
-            // Guardar o primeiro número
-            numero1 = Double.parseDouble(display.getText());
+            // Verificar se o display contém um número válido antes de guardar
+            String displayText = display.getText();
+            if (!displayText.equals("+") && !displayText.equals("-") && 
+                !displayText.equals("X") && !displayText.equals("/")) {
+                // Guardar o primeiro número
+                numero1 = Double.parseDouble(displayText);
+            }
             // Guardar a operação escolhida
             operacao = comando;
             // Mostrar a operação no display
