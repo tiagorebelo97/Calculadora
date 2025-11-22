@@ -141,8 +141,14 @@ public class Calculadora extends JFrame implements ActionListener {
         }
         // Verificar se foi clicado o ponto decimal
         else if (comando.equals(".")) {
-            // Só adicionar o ponto se ainda não existir um no display
-            if (!display.getText().contains(".")) {
+            // Se o display mostrar uma operação, começar novo número com "0."
+            if (display.getText().equals("+") || 
+                display.getText().equals("-") || 
+                display.getText().equals("X") || 
+                display.getText().equals("/")) {
+                display.setText("0.");
+            } else if (!display.getText().contains(".")) {
+                // Só adicionar o ponto se ainda não existir um no display
                 display.setText(display.getText() + ".");
             }
         }
